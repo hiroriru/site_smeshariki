@@ -525,3 +525,38 @@ body {
         font-size: 16px !important;
     }
 }
+/* СУПЕР-КОМПАКТНАЯ ШАПКА ДЛЯ ТЕЛЕФОНОВ */
+@media (max-width: 768px) {
+    .header {
+        padding: 5px 0 !important; /* Очень маленькие отступы */
+        position: relative; /* Убираем sticky если мешает */
+    }
+    
+    .header__inner {
+        flex-direction: row; /* Лого и меню в одну строку */
+        justify-content: space-between;
+        gap: 10px;
+    }
+    
+    .logo-img {
+        height: 30px !important; /* Очень маленькое лого */
+    }
+    
+    .logo-text {
+        display: none; /* Прячем текст "Смешарики" на телефоне */
+    }
+    
+    .nav__list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5px 8px;
+        margin: 0;
+    }
+    
+    .nav__link {
+        font-size: 12px;
+        padding: 4px 8px;
+        background: rgba(255,255,255,0.2);
+        border-radius: 10px;
+    }
+}
