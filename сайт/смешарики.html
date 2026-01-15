@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Смешарики и их психологические портреты.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+
+<body>
+
+    <!-- Шапка с меню -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <img src="images/logo.png" alt="Логотип Смешарики" class="logo">
+                    <span class="logo-text">Смешарики</span>
+                </div>
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#hero" class="nav__link">Главная</a></li>
+                        <li class="nav__item"><a href="#characters" class="nav__link">Персонажи</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">О проекте</a></li>
+                        <li class="nav__item"><a href="#location" class="nav__link">Локация</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="main">
+        <section id="hero" class="hero">
+            <div class="hero__image-wrapper">
+                <!-- Картинка на весь экран -->
+                <img src="images/Image.png" alt="Все Смешарики" class="hero__bg-image">
+
+                <!-- Текст поверх картинки -->
+                <div class="hero__content">
+                    <div class="container">
+                        <h1 class="hero__title">Добро пожаловать в мир Смешариков!</h1>
+                        <p class="hero__text">Здесь живут круглые друзья, которые учат нас дружбе, смеху и доброте.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Галерея персонажей -->
+        <section id="characters" class="characters">
+            <div class="container">
+                <h2 class="section-title">Наши герои и их психологические портреты</h2>
+                <div class="characters__grid">
+                    <!-- Карточка 1 -->
+                    <a href="characters/krosh.html" class="character-card">
+                        <img src="images/krosh.png" alt="Крош" class="character-card__img">
+                        <h3 class="character-card__name">Крош</h3>
+                        <p class="character-card__desc">Весёлый и энергичный кролик</p>
+                    </a>
+                    <!-- Карточка 2 -->
+                    <a href="characters/eg.html" class="character-card">
+                        <img src="images/eg.png" alt="Ёжик" class="character-card__img">
+                        <h3 class="character-card__name">Ёжик</h3>
+                        <p class="character-card__desc">Умный и осторожный ёж</p>
+                    </a>
+                    <!-- Карточка 3 -->
+                    <a href="characters/pin.html" class="character-card">
+                        <img src="images/pin.png" alt="Пин" class="character-card__img">
+                        <h3 class="character-card__name">Пин</h3>
+                        <p class="character-card__desc">Гениальный пингвин-изобретатель</p>
+                    </a>
+                    <!-- Карточка 4 -->
+                    <a href="characters/losyash.html" class="character-card">
+                        <img src="images/losyash.png" alt="Лосяш" class="character-card__img">
+                        <h3 class="character-card__name">Лосяш</h3>
+                        <p class="character-card__desc">Учёный-философ</p>
+                    </a>
+
+                    <!-- Карточка 5: Нюша -->
+                    <a href="characters/nusha.html" class="character-card">
+                        <img src="images/nusha.png" alt="Нюша" class="character-card__img">
+                        <h3 class="character-card__name">Нюша</h3>
+                        <p class="character-card__desc">Модная и романтичная свинка</p>
+                    </a>
+
+                    <!-- Карточка 6: Бараш -->
+                    <a href="characters/barash.html" class="character-card">
+                        <img src="images/barash.png" alt="Бараш" class="character-card__img">
+                        <h3 class="character-card__name">Бараш</h3>
+                        <p class="character-card__desc">Поэтичный и мечтательный баран</p>
+                    </a>
+
+                    <!-- Карточка 7: Кар-Карыч -->
+                    <a href="characters/karkarych.html" class="character-card">
+                        <img src="images/karkarych.png" alt="Кар-Карыч" class="character-card__img">
+                        <h3 class="character-card__name">Кар-Карыч</h3>
+                        <p class="character-card__desc">Бывалый ворон-путешественник</p>
+                    </a>
+
+                    <!-- Карточка 8: Совунья -->
+                    <a href="characters/sova.html" class="character-card">
+                        <img src="images/sova.png" alt="Совунья" class="character-card__img">
+                        <h3 class="character-card__name">Совунья</h3>
+                        <p class="character-card__desc">Заботливая сова-доктор</p>
+                    </a>
+
+                    <!-- Карточка 9: Копатыч -->
+                    <a href="characters/kopatych.html" class="character-card">
+                        <img src="images/kopatych.png" alt="Копатыч" class="character-card__img">
+                        <h3 class="character-card__name">Копатыч</h3>
+                        <p class="character-card__desc">Трудолюбивый медведь-огородник</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- О проекте -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">О проекте</h2>
+                <p>Этот сайт создан для фанатов мультсериала "Смешарики". Здесь вы найдёте описание персонажей, их
+                    психологические портреты и много интересного!</p>
+            </div>
+        </section>
+        <!-- В index.html после секции about добавляем: -->
+
+        <!-- Карта локации -->
+        <!-- Секция с картой -->
+        <section id="location" class="location">
+            <div class="container">
+                <h2 class="section-title">📍 Где создавались Смешарики</h2>
+                <p style="text-align: center; color: #666; margin-bottom: 20px;">
+                    Мультсериал создавался в Санкт-Петербурге
+                </p>
+                <div id="map" class="map"></div>
+                <!-- Инфа добавится автоматически через JS -->
+            </div>
+        </section>
+
+        <!-- Форма обратной связи (базовая, потом добавим JS) -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Обратная связь</h2>
+                <form id="feedback-form" class="feedback-form">
+                    <input type="text" placeholder="Ваше имя" required class="form-input">
+                    <input type="email" placeholder="Ваш email" required class="form-input">
+                    <textarea placeholder="Ваше сообщение..." rows="5" required class="form-textarea"></textarea>
+                    <button type="submit" class="form-btn">Отправить</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <p>© 2026 Смешарики Fan Site. Все права защищены.</p>
+            <p>Свяжитесь с нами: <a href="mailto:nastalavris6@gmail.com">contact@smesharyki.ru</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
