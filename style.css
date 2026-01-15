@@ -36,17 +36,14 @@ body {
 }
 
 .header__logo {
-    background-image: url('/site_smeshariki/images/logo.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left center;
-    padding-left: 60px;
-    /* Отступ для картинки */
-    min-height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.header__logo img {
-    display: none;
+.logo-img {
+    height: 50px;
+    width: auto;
 }
 
 .logo {
