@@ -494,3 +494,34 @@ body {
         font-size: 22px !important;
     }
 }
+/* ДЛЯ МОБИЛЬНЫХ ТЕЛЕФОНОВ */
+@media (max-width: 480px) {
+    .hero {
+        height: 250px !important; /* Вместо 300px будет 250px */
+    }
+    
+    .hero__title {
+        font-size: 22px !important; /* Ещё меньше заголовок */
+        margin-bottom: 10px;
+    }
+    
+    .hero__text {
+        font-size: 14px !important; /* Меньше текст */
+        padding: 0 10px;
+    }
+}
+
+/* ДЛЯ ПЛАНШЕТОВ */
+@media (max-width: 768px) and (min-width: 481px) {
+    .hero {
+        height: 300px !important; /* Вместо 400px будет 300px */
+    }
+    
+    .hero__title {
+        font-size: 28px !important;
+    }
+    
+    .hero__text {
+        font-size: 16px !important;
+    }
+}
