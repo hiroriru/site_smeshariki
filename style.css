@@ -1,3 +1,5 @@
+/* ========== ОСНОВНЫЕ СТИЛИ ========== */
+
 /* Сброс стилей */
 * {
     margin: 0;
@@ -10,6 +12,7 @@ body {
     background-color: #f9f9f9;
     color: #333;
     line-height: 1.6;
+    padding-top: 0; /* Убираем отступ для body */
 }
 
 .container {
@@ -19,14 +22,17 @@ body {
     padding: 0 20px;
 }
 
-/* Шапка */
+/* ========== ШАПКА (ОСНОВНЫЕ СТИЛИ) ========== */
+
 .header {
     background-color: #d183a9;
-    padding: 20px 0;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* По умолчанию - для десктопа */
+    padding: 15px 0;
+    transition: all 0.3s ease;
 }
 
 .header__inner {
@@ -39,37 +45,200 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
+    flex-shrink: 0; /* Чтобы лого не сжималось */
 }
 
 .logo-img {
-    height: 50px;
+    height: 40px; /* Уменьшил с 50px */
     width: auto;
+    transition: height 0.3s ease;
 }
 
 .logo-text {
-    font-size: 24px;
+    font-size: 20px; /* Уменьшил с 24px */
     font-weight: bold;
     color: white;
+    transition: font-size 0.3s ease;
 }
 
-/* Навигация */
+/* Навигация (десктоп) */
 .nav__list {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 20px; /* Уменьшил с 30px */
 }
 
 .nav__link {
     text-decoration: none;
     color: white;
-    font-size: 18px;
+    font-size: 16px; /* Уменьшил с 18px */
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color 0.3s, font-size 0.3s;
+    white-space: nowrap; /* Чтобы текст не переносился */
 }
 
 .nav__link:hover {
     color: #4d4177;
 }
+
+/* ========== АДАПТИВНОСТЬ ========== */
+
+/* ПЛАНШЕТЫ (768px и меньше) */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 0 !important; /* Меньше отступы */
+    }
+    
+    .logo-img {
+        height: 35px !important; /* Ещё меньше лого */
+    }
+    
+    .logo-text {
+        font-size: 18px !important;
+    }
+    
+    .nav__link {
+        font-size: 15px !important;
+        padding: 5px 8px;
+    }
+    
+    .nav__list {
+        gap: 12px !important;
+    }
+}
+
+/* ТЕЛЕФОНЫ (480px и меньше) - КОМПАКТНАЯ ВЕРСИЯ */
+@media (max-width: 480px) {
+    .header {
+        padding: 6px 0 !important; /* Минимальные отступы */
+        position: fixed; /* Фиксированная позиция */
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+    
+    body {
+        padding-top: 56px; /* Отступ для фиксированной шапки */
+    }
+    
+    .header__inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        padding: 0 10px;
+    }
+    
+    .header__logo {
+        gap: 8px;
+        flex: 0 1 auto;
+    }
+    
+    .logo-img {
+        height: 28px !important; /* Очень маленькое лого */
+        min-height: 28px;
+    }
+    
+    .logo-text {
+        font-size: 14px !important; /* Маленький текст */
+        display: block; /* Показываем, но маленький */
+        line-height: 1;
+    }
+    
+    /* Навигация для телефона */
+    .nav {
+        flex: 1 1 auto;
+        overflow-x: auto; /* Горизонтальный скролл если не помещается */
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .nav__list {
+        display: flex;
+        flex-direction: row;
+        gap: 6px !important;
+        padding: 2px 0;
+        margin: 0;
+        justify-content: flex-end;
+    }
+    
+    .nav__item {
+        flex-shrink: 0; /* Чтобы пункты не сжимались */
+    }
+    
+    .nav__link {
+        font-size: 12px !important;
+        padding: 4px 8px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        display: inline-block;
+        text-align: center;
+        min-width: 50px;
+        line-height: 1.2;
+    }
+    
+    /* Скрываем текст у очень длинных пунктов */
+    .nav__link[href="#hero"]::after { content: "Главная"; }
+    .nav__link[href="#characters"]::after { content: "Герои"; }
+    .nav__link[href="#about"]::after { content: "О нас"; }
+    .nav__link[href="#location"]::after { content: "Карта"; }
+    .nav__link[href="#contact"]::after { content: "Контакты"; }
+    
+    /* Убираем оригинальный текст */
+    .nav__link span {
+        display: none;
+    }
+}
+
+/* ОЧЕНЬ МАЛЕНЬКИЕ ТЕЛЕФОНЫ (380px и меньше) */
+@media (max-width: 380px) {
+    .header {
+        padding: 4px 0 !important;
+    }
+    
+    body {
+        padding-top: 48px;
+    }
+    
+    .logo-img {
+        height: 24px !important;
+    }
+    
+    .logo-text {
+        font-size: 12px !important;
+    }
+    
+    .nav__link {
+        font-size: 11px !important;
+        padding: 3px 6px;
+        min-width: 45px;
+    }
+    
+    .nav__list {
+        gap: 4px !important;
+    }
+}
+
+/* ЛАНДШАФТНАЯ ОРИЕНТАЦИЯ */
+@media (max-width: 768px) and (orientation: landscape) {
+    .header {
+        padding: 8px 0 !important;
+    }
+    
+    .logo-img {
+        height: 30px !important;
+    }
+    
+    .nav__link {
+        font-size: 13px !important;
+        padding: 4px 10px;
+    }
+    
+    body {
+        padding-top: 46px;
+    }
+}
+
+/* ========== ОСТАЛЬНЫЕ СТИЛИ (без изменений) ========== */
 
 /* Главный баннер */
 .hero {
@@ -298,35 +467,15 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
-}
-
-@keyframes slideOut {
-    from { opacity: 1; transform: translateY(0); }
-    to { opacity: 0; transform: translateY(-50px); }
-}
-
-/* Адаптивность */
+/* Адаптивность остальных элементов */
 @media (max-width: 768px) {
-    .header__inner {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .nav__list {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-
     .hero {
-        height: 400px;
+        height: 350px;
+        margin-bottom: 40px;
     }
 
     .hero__title {
-        font-size: 36px;
+        font-size: 32px;
     }
 
     .hero__text {
@@ -335,228 +484,63 @@ body {
 
     .characters__grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-
-    .map {
-        height: 300px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        height: 300px;
-    }
-
-    .hero__title {
-        font-size: 28px;
+        gap: 20px;
+        padding: 15px;
     }
 
     .character-card__img {
         height: 200px;
     }
+
+    .section-title {
+        font-size: 28px;
+        margin: 40px 0 20px;
+    }
+
+    .map {
+        height: 300px;
+    }
+    
+    .about, .contact, .location {
+        padding: 40px 0;
+    }
 }
-/* ========== АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ ========== */
 
-@media (max-width: 768px) {
-    /* Общие стили */
-    .container {
-        padding: 0 15px;
-    }
-
-    /* Шапка */
-    .header__inner {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .nav__list {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-
-    .nav__link {
-        font-size: 16px;
-        padding: 8px 15px;
-        display: inline-block;
-    }
-
-    /* Главный баннер */
+@media (max-width: 480px) {
     .hero {
-        height: 350px;
+        height: 250px;
+        margin-bottom: 30px;
     }
 
     .hero__title {
-        font-size: 32px;
-        padding: 0 20px;
+        font-size: 24px;
+        margin-bottom: 10px;
     }
 
     .hero__text {
-        font-size: 18px;
-        padding: 0 20px;
+        font-size: 16px;
     }
 
-    /* Галерея персонажей */
     .characters__grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 15px;
         padding: 10px;
     }
 
     .character-card {
-        margin-bottom: 10px;
-    }
-
-    .character-card__img {
-        height: 180px;
+        padding-bottom: 15px;
     }
 
     .character-card__name {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .character-card__desc {
         font-size: 14px;
     }
-
-    /* Форма обратной связи */
-    .feedback-form {
-        padding: 0 10px;
-    }
-
-    .form-input,
-    .form-textarea {
-        padding: 12px;
-        font-size: 14px;
-    }
-
-    .form-btn {
-        padding: 14px;
-        font-size: 16px;
-    }
-
-    /* Карта */
-    .map iframe {
-        height: 300px;
-    }
-
-    .location__info {
-        padding: 15px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    /* Для маленьких телефонов */
-    .characters__grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
-    .hero {
-        height: 280px;
-    }
-
-    .hero__title {
-        font-size: 28px;
-    }
-
-    .hero__text {
-        font-size: 16px;
-    }
-
+    
     .section-title {
-        font-size: 28px;
-        margin: 30px 0 20px;
-    }
-
-    /* Кнопки в карте */
-    .location__info div {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .location__info a {
-        max-width: 100%;
-    }
-}
-
-/* Стили для всплывающего окна на мобильных */
-@media (max-width: 768px) {
-    .character-popup-mobile {
-        width: 95% !important;
-        max-width: 95% !important;
-        padding: 20px !important;
-        max-height: 85vh !important;
-    }
-
-    .character-popup-mobile h3 {
-        font-size: 22px !important;
-    }
-}
-/* ДЛЯ МОБИЛЬНЫХ ТЕЛЕФОНОВ */
-@media (max-width: 480px) {
-    .hero {
-        height: 250px !important; /* Вместо 300px будет 250px */
-    }
-    
-    .hero__title {
-        font-size: 22px !important; /* Ещё меньше заголовок */
-        margin-bottom: 10px;
-    }
-    
-    .hero__text {
-        font-size: 14px !important; /* Меньше текст */
-        padding: 0 10px;
-    }
-}
-
-/* ДЛЯ ПЛАНШЕТОВ */
-@media (max-width: 768px) and (min-width: 481px) {
-    .hero {
-        height: 300px !important; /* Вместо 400px будет 300px */
-    }
-    
-    .hero__title {
-        font-size: 28px !important;
-    }
-    
-    .hero__text {
-        font-size: 16px !important;
-    }
-}
-/* СУПЕР-КОМПАКТНАЯ ШАПКА ДЛЯ ТЕЛЕФОНОВ */
-@media (max-width: 768px) {
-    .header {
-        padding: 5px 0 !important; /* Очень маленькие отступы */
-        position: relative; /* Убираем sticky если мешает */
-    }
-    
-    .header__inner {
-        flex-direction: row; /* Лого и меню в одну строку */
-        justify-content: space-between;
-        gap: 10px;
-    }
-    
-    .logo-img {
-        height: 30px !important; /* Очень маленькое лого */
-    }
-    
-    .logo-text {
-        display: none; /* Прячем текст "Смешарики" на телефоне */
-    }
-    
-    .nav__list {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 5px 8px;
-        margin: 0;
-    }
-    
-    .nav__link {
-        font-size: 12px;
-        padding: 4px 8px;
-        background: rgba(255,255,255,0.2);
-        border-radius: 10px;
+        font-size: 24px;
+        margin: 30px 0 15px;
     }
 }
